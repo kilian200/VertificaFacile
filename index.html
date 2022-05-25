@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Test di primalità</h1>
+  <button onclick="eseguiIsPrime()">Scrivi i numeri primi da 1 a 100.</button>
+  <button onclick="eseguiIsPrimeReverse()">Scrivi i numeri primi da 1 a 100 al contrario.</button>
+
+
+  <p id="out"></p>
+  <script>
+
+    let ArrayPrimi=[];
+    function eseguiIsPrime() {
+      n = 100
+      for(let i = 1;i<n;i++){
+        if (isPrime(i)) {
+          document.getElementById("out").innerHTML+="Il numero: "+i+"<br>";
+          ArrayPrimi.push(i);
+        }
+      }
+    }
+    var j=0;
+    function eseguiIsPrimeReverse() { 
+    n = 100
+      for(let i = 1;i<n;i++){
+        if (isPrime(i)) {
+          ArrayPrimi.push(i);
+        }
+      }     
+      ArrayPrimi.reverse();
+      for(let i = 1;i<ArrayPrimi.length+1;i++){
+        let ind = ArrayPrimi[j];
+        document.getElementById("out").innerHTML+="Il numero: "+ind+"<br>"; 
+        j=j+1;
+      }
+    }
+
+
+
+    function isPrime(n) {
+      let primoOut = true;
+      for (let fattore = 2; fattore <= n / 2 && primoOut; fattore++) {
+        if (n % fattore == 0) {
+          primoOut = false;
+        }
+      }
+      return primoOut;
+    }
+  </script>
+
+</body>
+
+</html>
